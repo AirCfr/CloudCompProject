@@ -50,84 +50,119 @@ var Cursor = /** @class */ (function (_super) {
     __extends(Cursor, _super);
     function Cursor(name, base_price, price, quantity) {
         var _this = _super.call(this) || this;
+        _this.cps = 0.1;
         _this.name = name;
         _this.base_price = base_price;
         _this.price = price;
         _this.quantity = quantity;
         return _this;
     }
+    // MONEYYYYY TIMEEEEEEEEEEEEEE
+    Cursor.prototype.moneyTime = function () {
+        player.money += this.cps * this.quantity;
+    };
     return Cursor;
 }(Item));
 var Grandma = /** @class */ (function (_super) {
     __extends(Grandma, _super);
     function Grandma(name, base_price, price, quantity) {
         var _this = _super.call(this) || this;
+        _this.cps = 1;
         _this.name = name;
         _this.base_price = base_price;
         _this.price = price;
         _this.quantity = quantity;
         return _this;
     }
+    // MONEYYYYY TIMEEEEEEEEEEEEEE
+    Grandma.prototype.moneyTime = function () {
+        player.money += this.cps * this.quantity;
+    };
     return Grandma;
 }(Item));
 var Farm = /** @class */ (function (_super) {
     __extends(Farm, _super);
     function Farm(name, base_price, price, quantity) {
         var _this = _super.call(this) || this;
+        _this.cps = 8;
         _this.name = name;
         _this.base_price = base_price;
         _this.price = price;
         _this.quantity = quantity;
         return _this;
     }
+    // MONEYYYYY TIMEEEEEEEEEEEEEE
+    Farm.prototype.moneyTime = function () {
+        player.money += this.cps * this.quantity;
+    };
     return Farm;
 }(Item));
 var Mine = /** @class */ (function (_super) {
     __extends(Mine, _super);
     function Mine(name, base_price, price, quantity) {
         var _this = _super.call(this) || this;
+        _this.cps = 47;
         _this.name = name;
         _this.base_price = base_price;
         _this.price = price;
         _this.quantity = quantity;
         return _this;
     }
+    // MONEYYYYY TIMEEEEEEEEEEEEEE
+    Mine.prototype.moneyTime = function () {
+        player.money += this.cps * this.quantity;
+    };
     return Mine;
 }(Item));
 var Factory = /** @class */ (function (_super) {
     __extends(Factory, _super);
     function Factory(name, base_price, price, quantity) {
         var _this = _super.call(this) || this;
+        _this.cps = 260;
         _this.name = name;
         _this.base_price = base_price;
         _this.price = price;
         _this.quantity = quantity;
         return _this;
     }
+    // MONEYYYYY TIMEEEEEEEEEEEEEE
+    Factory.prototype.moneyTime = function () {
+        player.money += this.cps * this.quantity;
+    };
     return Factory;
 }(Item));
 var Bank = /** @class */ (function (_super) {
     __extends(Bank, _super);
     function Bank(name, base_price, price, quantity) {
         var _this = _super.call(this) || this;
+        _this.cps = 1400;
         _this.name = name;
         _this.base_price = base_price;
         _this.price = price;
         _this.quantity = quantity;
         return _this;
     }
+    // MONEYYYYY TIMEEEEEEEEEEEEEE
+    Bank.prototype.moneyTime = function () {
+        player.money += this.cps * this.quantity;
+    };
     return Bank;
 }(Item));
 var Temple = /** @class */ (function (_super) {
     __extends(Temple, _super);
     function Temple(name, base_price, price, quantity) {
         var _this = _super.call(this) || this;
+        _this.cps = 7800;
         _this.name = name;
         _this.base_price = base_price;
         _this.price = price;
         _this.quantity = quantity;
         return _this;
     }
+    // MONEYYYYY TIMEEEEEEEEEEEEEE
+    Temple.prototype.moneyTime = function () {
+        player.money += this.cps * this.quantity;
+    };
     return Temple;
 }(Item));
 var Inventory = /** @class */ (function () {
@@ -220,9 +255,7 @@ function gameLoop() {
     setInterval(function () {
         console.log(player.inventory);
         items.forEach(function (item) {
-            if (item != undefined && item.quantity) {
-                console.log(item.name);
-            }
+            item.moneyTime();
         });
     }, 1000);
 }
