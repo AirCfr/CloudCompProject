@@ -32,8 +32,18 @@ class Inventory {
     }
 }
 
-function mainLoop(Player){
+//============================= Event handlers  =============================//
 
+//============================= Main Functions  =============================//
+
+function gameLoop(Player){
+
+    setInterval(() => {
+        
+        //console.log(Player.inventory);
+        
+        }, 1000
+    )
 }
 
 function main(){
@@ -41,5 +51,7 @@ function main(){
 
     var player = new Player(0, inventory);
     
-    mainLoop(player);
+    gameLoop(player);
 }
+
+main();
