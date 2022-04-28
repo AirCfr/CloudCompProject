@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@1,300&display=swap');
+
+html{
+    background-image: url("img/wallpaper.jpg");
+    font-family: 'Anybody', cursive;
+}
+#counter{
+    font-size: large;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+}
+#container {
+    display: flex;                  /* establish flex container */
+    flex-direction: row;            /* default value; can be omitted */
+    flex-wrap: nowrap;              /* default value; can be omitted */
+    justify-content: space-between; /* switched from default (flex-start, see below) */
+    
+  }
+  #container > div {
+    border-radius: 25px;
+    text-align: center;
+  }
+
+  #store
+{
+	position:flex;
+}
+#store>div
+{
+	background:#eee no-repeat;
+	width:256px;
+	height:64px;
+	padding-left:72px;
+	cursor:pointer;
+	border:#000 2px solid;
+	position:relative;
+}
+#store>div:hover
+{
+	background-color:#fff;
+}
+#store>div:active
+{
+	background-color:#ccc;
+}
+#store>div b
+{
+	display:block;
+}
+#store>div.grayed
+{
+	background-color:#666;
+	color:#f00;
+}
+
+#store>div .amount
+{
+	position:absolute;
+	right:8px;
+	top:8px;
+	font-size:48px;
+	color:#000;
+	opacity:0.2;
+}
+#cookie
+{
+	position:absolute;
+	cursor:pointer;
+    background-color: #ccc;
+    padding: 50px;
+    border-radius: 25px;
+    
+}
+#cookie>img:hover
+{
+	filter: contrast(150%);
+}
+#cookie>img:active
+{
+    transform:scale(1.1)
+}
+#cookie .cursor
+{
+	width:32px;
+	height:32px;
+	position:absolute;
+	background:url(img/cursor.png);
+}
+#containerlb{
+    background-color:#ccc;
+}
+#titre{
+    width: auto;
+    background: #666;
+}
+#left{
+    width:200px;
+    background-color: #ccc;
+}
+#center{
+    width: 100%;
+    justify-content: center;
+    display:flex;
+}
