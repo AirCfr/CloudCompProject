@@ -221,6 +221,7 @@ function onExport(){
 
 function onCookieClick() {
     player.money += 1;
+    update();
 }
 
 function onBuySelector(selec: number) {
@@ -232,7 +233,7 @@ function onCursorBuy() {
         player.inventory.cursor.quantity += 1 * buymodificator; // get quantityToBuy
         player.money -= player.inventory.cursor.getNextPrice(buymodificator);          // set new money
         player.inventory.cursor.raisePrice(buymodificator);     // set new price + new quantityOwned
-    }
+    }update();
 
 }
 function onGrandmaBuy() {
@@ -240,7 +241,7 @@ function onGrandmaBuy() {
         player.inventory.grandma.quantity += 1 * buymodificator;
         player.money -= player.inventory.grandma.getNextPrice(buymodificator);
         player.inventory.grandma.raisePrice(buymodificator);
-    }
+    }update();
 
 }
 function onFarmBuy() {
@@ -248,7 +249,7 @@ function onFarmBuy() {
         player.inventory.farm.quantity += 1 * buymodificator;
         player.money -= player.inventory.farm.getNextPrice(buymodificator);
         player.inventory.farm.raisePrice(buymodificator);
-    }
+    }update();
 
 }
 function onMineBuy() {
@@ -256,7 +257,7 @@ function onMineBuy() {
         player.inventory.mine.quantity += 1 * buymodificator;
         player.money -= player.inventory.mine.getNextPrice(buymodificator);
         player.inventory.mine.raisePrice(buymodificator);
-    }
+    }update();
 
 }
 function onFactoryBuy() {
@@ -264,7 +265,7 @@ function onFactoryBuy() {
         player.inventory.factory.quantity += 1 * buymodificator;
         player.money -= player.inventory.factory.getNextPrice(buymodificator);
         player.inventory.factory.raisePrice(buymodificator);
-    }
+    }update();
 
 }
 function onBankBuy() {
@@ -272,7 +273,7 @@ function onBankBuy() {
         player.inventory.bank.quantity += 1 * buymodificator;
         player.money -= player.inventory.bank.getNextPrice(buymodificator);
         player.inventory.bank.raisePrice(buymodificator);
-    }
+    }update();
 
 }
 function onTempleBuy() {
@@ -280,11 +281,48 @@ function onTempleBuy() {
         player.inventory.temple.quantity += 1 * buymodificator;
         player.money -= player.inventory.temple.getNextPrice(buymodificator);
         player.inventory.temple.raisePrice(buymodificator);
-    }
+    }update();
 
 }
 
 //============================= Normal Functions =============================//
+
+//============================= Display Functions ===========================//
+
+function updateCookie(){
+    document.getElementById('counter').innerHTML = "Cookies: "+round(player.money);
+}
+
+function updateStore(){
+
+    document.getElementById('CursorPrice').innerHTML = "Cursor - "+round(player.inventory.cursor.price);
+    document.getElementById('CursorId').innerHTML = player.inventory.cursor.quantity;
+
+    document.getElementById('GrandmaPrice').innerHTML = "Grandma - "+round(player.inventory.grandma.price);
+    document.getElementById('GrandmaId').innerHTML = player.inventory.grandma.quantity;
+
+    document.getElementById('FarmPrice').innerHTML = "Farm - "+round(player.inventory.farm.price);
+    document.getElementById('FarmId').innerHTML = player.inventory.farm.quantity;
+
+    document.getElementById('MinePrice').innerHTML = "Mine - "+round(player.inventory.mine.price);
+    document.getElementById('MineId').innerHTML = player.inventory.mine.quantity;
+
+    document.getElementById('FactoryPrice').innerHTML = "Factory - "+round(player.inventory.factory.price);
+    document.getElementById('FactoryId').innerHTML = player.inventory.factory.quantity;
+
+    document.getElementById('BankPrice').innerHTML = "Bank - "+round(player.inventory.bank.price);
+    document.getElementById('BankId').innerHTML = player.inventory.bank.quantity;
+
+    document.getElementById('TemplePrice').innerHTML = "Temple - "+round(player.inventory.temple.price);
+    document.getElementById('TempleId').innerHTML = player.inventory.temple.quantity;
+
+
+}
+
+function update(){
+    updateStore();
+    updateCookie();
+}
 
 //============================= Math Functions =============================//
 
