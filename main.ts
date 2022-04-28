@@ -296,25 +296,25 @@ function updateCookie(){
 function updateStore(){
 
     document.getElementById('CursorPrice').innerHTML = "Cursor - "+round(player.inventory.cursor.price);
-    document.getElementById('CursorId').innerHTML = player.inventory.cursor.quantity;
+    document.getElementById('CursorId').innerHTML = player.inventory.cursor.quantity.toString();
 
     document.getElementById('GrandmaPrice').innerHTML = "Grandma - "+round(player.inventory.grandma.price);
-    document.getElementById('GrandmaId').innerHTML = player.inventory.grandma.quantity;
+    document.getElementById('GrandmaId').innerHTML = player.inventory.grandma.quantity.toString();
 
     document.getElementById('FarmPrice').innerHTML = "Farm - "+round(player.inventory.farm.price);
-    document.getElementById('FarmId').innerHTML = player.inventory.farm.quantity;
+    document.getElementById('FarmId').innerHTML = player.inventory.farm.quantity.toString();
 
     document.getElementById('MinePrice').innerHTML = "Mine - "+round(player.inventory.mine.price);
-    document.getElementById('MineId').innerHTML = player.inventory.mine.quantity;
+    document.getElementById('MineId').innerHTML = player.inventory.mine.quantity.toString();
 
     document.getElementById('FactoryPrice').innerHTML = "Factory - "+round(player.inventory.factory.price);
-    document.getElementById('FactoryId').innerHTML = player.inventory.factory.quantity;
+    document.getElementById('FactoryId').innerHTML = player.inventory.factory.quantity.toString();
 
     document.getElementById('BankPrice').innerHTML = "Bank - "+round(player.inventory.bank.price);
-    document.getElementById('BankId').innerHTML = player.inventory.bank.quantity;
+    document.getElementById('BankId').innerHTML = player.inventory.bank.quantity.toString();
 
     document.getElementById('TemplePrice').innerHTML = "Temple - "+round(player.inventory.temple.price);
-    document.getElementById('TempleId').innerHTML = player.inventory.temple.quantity;
+    document.getElementById('TempleId').innerHTML = player.inventory.temple.quantity.toString();
 
 
 }

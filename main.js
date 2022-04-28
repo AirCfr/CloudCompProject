@@ -210,6 +210,7 @@ function onExport() {
 }
 function onCookieClick() {
     player.money += 1;
+    update();
 }
 function onBuySelector(selec) {
     buymodificator = selec;
@@ -220,6 +221,7 @@ function onCursorBuy() {
         player.money -= player.inventory.cursor.getNextPrice(buymodificator); // set new money
         player.inventory.cursor.raisePrice(buymodificator); // set new price + new quantityOwned
     }
+    update();
 }
 function onGrandmaBuy() {
     if (player.money >= player.inventory.grandma.getNextPrice(buymodificator)) {
@@ -227,6 +229,7 @@ function onGrandmaBuy() {
         player.money -= player.inventory.grandma.getNextPrice(buymodificator);
         player.inventory.grandma.raisePrice(buymodificator);
     }
+    update();
 }
 function onFarmBuy() {
     if (player.money >= player.inventory.farm.getNextPrice(buymodificator)) {
@@ -234,6 +237,7 @@ function onFarmBuy() {
         player.money -= player.inventory.farm.getNextPrice(buymodificator);
         player.inventory.farm.raisePrice(buymodificator);
     }
+    update();
 }
 function onMineBuy() {
     if (player.money >= player.inventory.mine.getNextPrice(buymodificator)) {
@@ -241,6 +245,7 @@ function onMineBuy() {
         player.money -= player.inventory.mine.getNextPrice(buymodificator);
         player.inventory.mine.raisePrice(buymodificator);
     }
+    update();
 }
 function onFactoryBuy() {
     if (player.money >= player.inventory.factory.getNextPrice(buymodificator)) {
@@ -248,6 +253,7 @@ function onFactoryBuy() {
         player.money -= player.inventory.factory.getNextPrice(buymodificator);
         player.inventory.factory.raisePrice(buymodificator);
     }
+    update();
 }
 function onBankBuy() {
     if (player.money >= player.inventory.bank.getNextPrice(buymodificator)) {
@@ -255,6 +261,7 @@ function onBankBuy() {
         player.money -= player.inventory.bank.getNextPrice(buymodificator);
         player.inventory.bank.raisePrice(buymodificator);
     }
+    update();
 }
 function onTempleBuy() {
     if (player.money >= player.inventory.temple.getNextPrice(buymodificator)) {
@@ -262,8 +269,33 @@ function onTempleBuy() {
         player.money -= player.inventory.temple.getNextPrice(buymodificator);
         player.inventory.temple.raisePrice(buymodificator);
     }
+    update();
 }
 //============================= Normal Functions =============================//
+//============================= Display Functions ===========================//
+function updateCookie() {
+    document.getElementById('counter').innerHTML = "Cookies: " + round(player.money);
+}
+function updateStore() {
+    document.getElementById('CursorPrice').innerHTML = "Cursor - " + round(player.inventory.cursor.price);
+    document.getElementById('CursorId').innerHTML = player.inventory.cursor.quantity.toString();
+    document.getElementById('GrandmaPrice').innerHTML = "Grandma - " + round(player.inventory.grandma.price);
+    document.getElementById('GrandmaId').innerHTML = player.inventory.grandma.quantity.toString();
+    document.getElementById('FarmPrice').innerHTML = "Farm - " + round(player.inventory.farm.price);
+    document.getElementById('FarmId').innerHTML = player.inventory.farm.quantity.toString();
+    document.getElementById('MinePrice').innerHTML = "Mine - " + round(player.inventory.mine.price);
+    document.getElementById('MineId').innerHTML = player.inventory.mine.quantity.toString();
+    document.getElementById('FactoryPrice').innerHTML = "Factory - " + round(player.inventory.factory.price);
+    document.getElementById('FactoryId').innerHTML = player.inventory.factory.quantity.toString();
+    document.getElementById('BankPrice').innerHTML = "Bank - " + round(player.inventory.bank.price);
+    document.getElementById('BankId').innerHTML = player.inventory.bank.quantity.toString();
+    document.getElementById('TemplePrice').innerHTML = "Temple - " + round(player.inventory.temple.price);
+    document.getElementById('TempleId').innerHTML = player.inventory.temple.quantity.toString();
+}
+function update() {
+    updateStore();
+    updateCookie();
+}
 //============================= Math Functions =============================//
 function round(number) {
     return number - (number % 1);
