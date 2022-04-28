@@ -1,89 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div id="container">
-            <div id="left">
-                <h3>Leaderboard</h3>
-                <div id="containerlb">
-                    <div class="rowlb">
-                        <div class="name">Player1</div><div class="score">430</div>
-                    </div>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div id="container">
+			<div id="left">
+				<h3>Leaderboard</h3>
+				<div id="containerlb">
+					<div class="rowlb">
+						<div class="name">Player1</div><div class="score">430</div>
+					</div>
 
-                    <div class="rowlb">
-                        <div class="name">Player2</div><div class="score">580</div>
-                    </div>
+					<div class="rowlb">
+						<div class="name">Player2</div><div class="score">580</div>
+					</div>
 
-                    <div class="rowlb">
-                        <div class="name">Player3</div><div class="score">310</div>
-                    </div>
+					<div class="rowlb">
+						<div class="name">Player3</div><div class="score">310</div>
+					</div>
 
-                    <div class="rowlb">
-                        <div class="name">Player4</div><div class="score">640</div>
-                    </div>
+					<div class="rowlb">
+						<div class="name">Player4</div><div class="score">640</div>
+					</div>
 
-                    <div class="rowlb">
-                        <div class="name">Player5</div><div class="score">495</div>
-                    </div>
-                </div>
-            </div>
-            <div id="center">
-                <div id="cookie" onclick="onCookieClick()"><img
-                        src="img/cookie.png"
-                        width="200" /><div id="counter"><p>Cookies: 0</p></div></div>
-            </div>
-            <div id="right">
-                <div id="store">
-                    <div id="buyCursor" onclick="onCursorBuy()"
-                        style="background-image:url(img/cursoricon.png);"
-                        class=""><b>Cursor
-                            - 123456</b>Autoclicks every 5 seconds.
-                        <div class="amount">0</div>
-                    </div>
-                    <div id="buyGrandma"
-                        onclick="onGrandmaBuy()"
-                        style="background-image:url(img/grandmaicon.png);"
-                        class=""><b>Grandma
-                            - 0</b>A nice grandma to bake more
-                        cookies.<div class="amount">0</div>
-                    </div>
-                    <div
-                        id="buyFarm" onclick="onFarmBuy()"
-                        style="background-image:url(img/factoryicon.png);"
-                        class=""><b>Farm
-                            - 0</b>Produces large quantities of
-                        cookies.
-                        <div class="amount">0</div>
-                    </div>
-                    <div
-                        id="buyMine" onclick="onMineBuy()"
-                        style="background-image:url(img/mineicon.png);"
-                        class=""><b>Mine
-                            - 0</b>Mines out cookie dough and
-                        chocolate chips.
-                        <div class="amount">0</div>
-                    </div>
-                    <div
-                        id="buyBank" onclick="onBankBuy()"
-                        style="background-image:url(img/bankicon.png);"
-                        class=""><b>Bank - 0</b>Brings
-                        in fresh cookies from the bank.</div>
-                    <div
-                        id="buyTemple" onclick="onTempleBuy()"
-                        style="background-image:url(img/templeicon.png);"
-                        class=""><b>Temple - 0</b>Turns
-                        gold into cookies!
-                    </div>
-                </div>
-            </div>
-        </div>
+					<div class="rowlb">
+						<div class="name">Player5</div><div class="score">495</div>
+					</div>
+				</div>
+			</div>
+			<div id="center">
+				<div id="cookie" onclick="onCookieClick()"><img
+						src="img/cookie.png" width="200" />
+						<div id="counter"><p>Cookies: 0</p></div></div>
+			</div>
+			<div id="right">
+				<div id="store">
+					<div id="buyCursor" onclick="onCursorBuy()"
+						style="background-image:url(img/cursoricon.png);"
+						class="grayed"><b id="CursorPrice">Cursor
+							- ?</b>Autoclicks every 5 seconds.
+						<div id="CursorId" class="amount">?</div>
+					</div>
+					<div id="buyGrandma"
+						onclick="onGrandmaBuy()"
+						style="background-image:url(img/grandmaicon.png);"
+						class="grayed"><b id="GrandmaPrice">Grandma
+							- ?</b>A nice grandma to bake more
+						cookies.<div id="GrandmaId" class="amount">?</div>
+					</div>
+					<div
+						id="buyFarm" onclick="onFarmBuy()"
+						style="background-image:url(img/factoryicon.png);"
+						class="grayed"><b id="FarmPrice">Farm
+							- ?</b>Produces large quantities of
+						cookies.
+						<div id="FarmId" class="amount">?</div>
+					</div>
+					<div
+						id="buyMine" onclick="onMineBuy()"
+						style="background-image:url(img/mineicon.png);"
+						class="grayed"><b id="MinePrice">Mine
+							- ?</b>Mines out cookie dough and
+						chocolate chips.
+						<div id="MineId" class="amount">?</div>
+					</div>
+					<div
+						id="buyFactory" onclick="onFactoryBuy()"
+						style="background-image:url(img/factoryicon.png);"
+						class="grayed"><b id="FactoryPrice">Factory - ?</b>Creates cookies from the Factory.
+						<div id="FactoryId" class="amount">?</div>
+					</div>
+					<div
+						id="buyBank" onclick="onBankBuy()"
+						style="background-image:url(img/bankicon.png);"
+						class="grayed"><b id="BankPrice">Bank - ?</b>Brings
+						in fresh cookies from the bank.
+						<div id="BankId" class="amount">?</div>
+					</div>
+					<div
+						id="buyTemple" onclick="onTempleBuy()"
+						style="background-image:url(img/templeicon.png);"
+						class="grayed"><b id="TemplePrice">Temple - ?</b>Turns
+						gold into cookies!
+						<div id="TempleId" class="amount">?</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        <script src="main.js"></script>
-    </body>
+		<script src="main.js"></script>
+	</body>
 </html>
