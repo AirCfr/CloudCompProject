@@ -179,6 +179,9 @@ class Inventory {                               // singleton
         const res = [this.cursor, this.grandma, this.farm, this.mine, this.factory, this.bank, this.temple];
         return res;
     }
+    toDict() {
+        return {cursor:}
+    }
 }
 class Player {                                  // singleton
 
@@ -188,6 +191,10 @@ class Player {                                  // singleton
     constructor(money, invent: Inventory) {
         this.money = money;
         this.inventory = invent;
+    }
+
+     toDict() {
+        return {money:this.money, inventory:this.inventory.toDict()}
     }
 }
 
@@ -292,7 +299,14 @@ var buymodificator: number = 1;
 
 var player = new Player(0, new Inventory());
 
+
+//import
+//parsePlayer(DbGet(sessionid))
+
 gameLoop();
+
+//export
+JSON.parse(JSON.stringify(player))
 
 
 //var inventory = new Inventory();
