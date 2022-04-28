@@ -180,7 +180,7 @@ class Inventory {                               // singleton
         return res;
     }
     toDict() {
-        return {cursor:}
+        return {cursor:this.cursor}
     }
 }
 class Player {                                  // singleton

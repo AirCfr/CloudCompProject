@@ -179,6 +179,9 @@ var Inventory = /** @class */ (function () {
         var res = [this.cursor, this.grandma, this.farm, this.mine, this.factory, this.bank, this.temple];
         return res;
     };
+    Inventory.prototype.toDict = function () {
+        return { cursor: this.cursor };
+    };
     return Inventory;
 }());
 var Player = /** @class */ (function () {
@@ -186,12 +189,14 @@ var Player = /** @class */ (function () {
         this.money = money;
         this.inventory = invent;
     }
+    Player.prototype.toDict = function () {
+        return { money: this.money, inventory: this.inventory.toDict() };
+    };
     return Player;
 }());
 //============================= Event handlers =============================//
 function onCookieClick() {
     player.money += 1;
-    updateCookie();
 }
 function onBuySelector(selec) {
     buymodificator = selec;
@@ -202,7 +207,6 @@ function onCursorBuy() {
         player.money -= player.inventory.cursor.getNextPrice(buymodificator); // set new money
         player.inventory.cursor.raisePrice(buymodificator); // set new price + new quantityOwned
     }
-    updateCookie();
 }
 function onGrandmaBuy() {
     if (player.money >= player.inventory.grandma.getNextPrice(buymodificator)) {
@@ -210,7 +214,6 @@ function onGrandmaBuy() {
         player.money -= player.inventory.grandma.getNextPrice(buymodificator);
         player.inventory.grandma.raisePrice(buymodificator);
     }
-    updateCookie();
 }
 function onFarmBuy() {
     if (player.money >= player.inventory.farm.getNextPrice(buymodificator)) {
@@ -218,7 +221,6 @@ function onFarmBuy() {
         player.money -= player.inventory.farm.getNextPrice(buymodificator);
         player.inventory.farm.raisePrice(buymodificator);
     }
-    updateCookie();
 }
 function onMineBuy() {
     if (player.money >= player.inventory.mine.getNextPrice(buymodificator)) {
@@ -226,7 +228,6 @@ function onMineBuy() {
         player.money -= player.inventory.mine.getNextPrice(buymodificator);
         player.inventory.mine.raisePrice(buymodificator);
     }
-    updateCookie();
 }
 function onFactoryBuy() {
     if (player.money >= player.inventory.factory.getNextPrice(buymodificator)) {
@@ -234,7 +235,6 @@ function onFactoryBuy() {
         player.money -= player.inventory.factory.getNextPrice(buymodificator);
         player.inventory.factory.raisePrice(buymodificator);
     }
-    updateCookie();
 }
 function onBankBuy() {
     if (player.money >= player.inventory.bank.getNextPrice(buymodificator)) {
@@ -242,7 +242,6 @@ function onBankBuy() {
         player.money -= player.inventory.bank.getNextPrice(buymodificator);
         player.inventory.bank.raisePrice(buymodificator);
     }
-    updateCookie();
 }
 function onTempleBuy() {
     if (player.money >= player.inventory.temple.getNextPrice(buymodificator)) {
@@ -250,7 +249,6 @@ function onTempleBuy() {
         player.money -= player.inventory.temple.getNextPrice(buymodificator);
         player.inventory.temple.raisePrice(buymodificator);
     }
-    updateCookie();
 }
 //============================= Normal Functions =============================//
 //============================= Math Functions =============================//
@@ -258,23 +256,9 @@ function round(number) {
     return number - (number % 1);
 }
 //============================= Main Functions =============================//
-
-function startGame(){
-    document.getElementById('counter').innerHTML = "Cookie:  0";
-    document.getElementById('store')..forEach(element => {
-        console.log(element);
-    });
-}
-
-function updateCookie(){
-    document.getElementById('counter').innerHTML = "Cookies: "+round(player.money);
-}
-
 function gameLoop() {
     var items = player.inventory.iter();
-    startGame();
     setInterval(function () {
-        updateCookie();
         console.log(player.inventory);
         items.forEach(function (item) {
             item.moneyTime();
@@ -283,5 +267,9 @@ function gameLoop() {
 }
 var buymodificator = 1;
 var player = new Player(0, new Inventory());
+//import
+//parsePlayer(DbGet(sessionid))
 gameLoop();
+//export
+JSON.parse(JSON.stringify(player));
 //var inventory = new Inventory();
