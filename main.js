@@ -195,6 +195,19 @@ var Player = /** @class */ (function () {
     return Player;
 }());
 //============================= Event handlers =============================//
+function onStop() {
+    clearInterval(clock);
+}
+function onImport() {
+    console.log("Loading exemple");
+    var ex = '{"money":0,"inventory":{"cursor":{"cps":0.1,"name":"cursor","base_price":15,"price":15,"quantity":999},"grandma":{"cps":1,"name":"grandama","base_price":100,"price":100,"quantity":0},"farm":{"cps":8,"name":"farm","base_price":1100,"price":1100,"quantity":0},"mine":{"cps":47,"name":"mine","base_price":12000,"price":12000,"quantity":0},"factory":{"cps":260,"name":"factory","base_price":130000,"price":130000,"quantity":0},"bank":{"cps":1400,"name":"bank","base_price":1400000,"price":1400000,"quantity":0},"temple":{"cps":7800,"name":"tepmle","base_price":20000000,"price":20000000,"quantity":0}}}';
+    player = JSON.parse(ex);
+    console.log("Loaded exemple successfully !");
+}
+function onExport() {
+    var toExport = JSON.stringify(player);
+    console.log(toExport);
+}
 function onCookieClick() {
     player.money += 1;
 }
@@ -258,18 +271,18 @@ function round(number) {
 //============================= Main Functions =============================//
 function gameLoop() {
     var items = player.inventory.iter();
-    setInterval(function () {
+    clock = setInterval(function () {
         console.log(player.inventory);
         items.forEach(function (item) {
             item.moneyTime();
         });
     }, 1000);
 }
+var clock = undefined;
 var buymodificator = 1;
 var player = new Player(0, new Inventory());
 //import
 //parsePlayer(DbGet(sessionid))
 gameLoop();
 //export
-JSON.parse(JSON.stringify(player));
 //var inventory = new Inventory();
